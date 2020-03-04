@@ -1,0 +1,11 @@
+{% extends 'flashcards/base.html' %} {% block content %}
+<h2>{{ card.title }} <a href="{% url 'card_edit' pk=card.pk %}">(edit)</h2>
+<h4>{{ card.deck.name }}</h4>
+<h4>{{ card.album }}</h4>
+<a href="{% url 'card_delete' pk=card.pk %}">Delete Card</a>
+
+
+<a href="{{card.preview_url}}">
+  Listen to {{card.title}}
+</a>
+{% endblock %}
