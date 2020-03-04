@@ -16,8 +16,8 @@ class Category(models.Model):
 
 
 class Card(models.Model):
-    question = models.TextField()
-    answer = models.TextField()
+    question = MDTextField()
+    answer = MDTextField()
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='categories')
     # I want a Card to be able to have multiple Categories. How can I do this?
