@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+  <head>
+    <title>Flashcardjs</title>
+    <link rel="stylesheet" href="{% static 'css/flashcards.css' %}" />
+  </head>
+
+  <body>
+    <h1>Flashcardjs</h1>
+    <nav>
+      <a href="{% url 'card_list' %}">Cards</a>
+      <div class="user-info">
+        {% if user.is_authenticated %} Welcome, {{ user.username }}
+        <a href="{% url 'logout' %}">Log out</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Signup</a>
+        {% endif %}
+      </div>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>

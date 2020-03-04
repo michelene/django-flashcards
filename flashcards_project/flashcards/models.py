@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
-from mdeditor.fields import MDTextField
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Category(models.Model):
@@ -12,8 +13,8 @@ class Category(models.Model):
 
 class Card(models.Model):
     title = models.CharField(max_length=100, default='Card Title')
-    question = MDTextField()
-    answer = MDTextField()
+    question = RichTextField()
+    answer = RichTextField()
     categories = models.ManyToManyField(Category, related_name='cards')
 
     def __str__(self):
@@ -26,3 +27,5 @@ class Deck(models.Model):
 
     def __str__(self):
         return self.title
+
+
