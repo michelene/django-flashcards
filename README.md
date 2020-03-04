@@ -3,17 +3,22 @@
 # Data Model (PostgreSQL back end)
 
 - Category
+
   - category (CharField(100))
+
 - Card
 
-  - question (MDTextField)
-  - answer (MDTextField)
-  - category (ForeignKey)
+  - title (CharField(100))
+  - question (RichTextField)
+  - answer (RichTextField)
+  - categories (ManyToManyField(Category))
 
-- (Future) Deck
+- Deck
+  - title (CharField(100))
+  - cards (ManyToManyField(Card))
 
 # Django Plugins Used
 
-- djangorestframework
-- django-cors-headers
-- [django-mdeditor](https://developpaper.com/implementation-of-beautiful-django-markdown-rich-text-app-plug-in/)
+- [Django REST Framework](https://www.django-rest-framework.org/)
+- [django-cors-headers](https://github.com/adamchainz/django-cors-headers)
+- [django-ckeditor](https://django-ckeditor.readthedocs.io/en/latest/)
