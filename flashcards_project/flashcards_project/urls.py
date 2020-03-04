@@ -23,12 +23,6 @@ from django.conf import settings
 urlpatterns = [
     # path('', include('flashcards.urls')),
     path('admin/', admin.site.urls),
-    path('mdeditor/', include('mdeditor.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework'))
-
 ]
-
-if settings.DEBUG:
-    # static files (images, css, javascript, etc.)
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)

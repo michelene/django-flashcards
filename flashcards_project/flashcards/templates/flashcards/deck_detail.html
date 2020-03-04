@@ -1,0 +1,19 @@
+{% extends 'flashcards/base.html' %} {% block content %}
+<h2>{{ deck.name }} <a href="{% url 'deck_edit' pk=deck.pk %}">(edit)</h2>
+<h4>{{ deck.nationality }}</h4>
+<img src="{{ deck.photo_url }}" alt="" class="deck-photo" />
+<a href="{% url 'deck_delete' pk=deck.pk %}">Delete Deck</a>
+
+<h3>Cards <a href="">(+)</a></h3>
+<ul>
+  {% for card in deck.cards.all %}
+  <li>
+    <a href="{% url 'card_detail' pk=card.pk %}">
+      {{ card.title }} ({{ card.album }})
+    </a>
+    <br />
+    <a href="{{card.preview_url}}">Listen here </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
